@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: SunGather",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/SunGather/sungather.py",
+      "cwd": "${workspaceFolder}/SunGather",
+      "args": ["-c", "../config.yaml", "-v", "10"],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ]
+}
