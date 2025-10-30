@@ -61,7 +61,24 @@ class export_mqtt(object):
         if reason_code == 0:
             logging.info(f"MQTT: Connected to {client._host}:{client._port}")
         if reason_code > 0:
-            logging.warn(f"MQTT: FAILED to connect {client._host}:{client._port}")
+            reason_messages = {
+                # MQTT 3.1.1
+                1: "Unacceptable Protocol Version",
+                2: "Identifier Rejected",
+                3: "Server Unavailable",
+                4: "Bad Username or Password",
+                5: "Not Authorized",
+                # MQTT 5.0 common
+                128: "Unspecified Error",
+                129: "Malformed Packet",
+                130: "Protocol Error",
+                131: "Implementation Specific Error",
+                135: "Not Authorized",
+                140: "Server Moved",
+                141: "Server Unavailable",
+            }
+            error_message = reason_messages.get(reason_code, "Unknown Error")
+            logging.warning(f"MQTT: FAILED to disconnect (reason {reason_code}): {error_message}")
 
     def on_disconnect(self, client, userdata, flags, reason_code, properties):
         if reason_code == 0:

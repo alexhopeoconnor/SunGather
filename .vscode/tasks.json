@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Push SunGather Docker Image (Multi-Arch)",
+            "type": "shell",
+            "command": "docker buildx build --push --platform linux/amd64,linux/arm64/v8 -t gitea.elixirtechnologies.au/alex/sungather:latest .",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

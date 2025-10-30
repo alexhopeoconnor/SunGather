@@ -141,8 +141,10 @@ def main():
                     exports.append(getattr(export_load, "export_" + export.get('name'))())
                     retval = exports[-1].configure(export, inverter)
             except Exception as err:
-                logging.error(f"Failed loading export: {err}" +
-                            f"\n\t\t\t     Please make sure {export.get('name')}.py exists in the exports folder")
+                logging.error(
+                    f"Failed loading export '{export.get('name')}'",
+                    exc_info=True
+                )
 
     scan_interval = config_inverter.get('scan_interval')
 
