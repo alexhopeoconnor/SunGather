@@ -133,6 +133,7 @@ dmypy.json
 **/.agents
 **/.codex
 **/.claude
+**/.mcp.json
 **/.cursor
 **/.cursorrules
 **/.cursorignore
