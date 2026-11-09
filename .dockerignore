@@ -91,7 +91,6 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
@@ -116,3 +115,29 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Repository metadata and local credentials/state are not build inputs.
+**/.git
+**/.aws
+**/.azure
+**/.ssh
+**/.kube
+**/.config/gcloud
+**/.config/gh/hosts.yml
+**/.docker/config.json
+**/.docker/contexts
+**/.git-credentials
+**/.netrc
+**/_netrc
+**/.pypirc
+**/.agents
+**/.codex
+**/.claude
+**/.cursor
+**/.cursorrules
+**/.cursorignore
+**/.cursorindexingignore
+**/.env
+**/.env.*
+# Preserve config-example.yaml; actual inverter configuration stays local.
+**/config.yaml
